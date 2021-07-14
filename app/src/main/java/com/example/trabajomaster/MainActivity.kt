@@ -13,7 +13,6 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        Thread.sleep(2000)
         setTheme(R.style.Theme_TrabajoMaster)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_profile
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
 }
