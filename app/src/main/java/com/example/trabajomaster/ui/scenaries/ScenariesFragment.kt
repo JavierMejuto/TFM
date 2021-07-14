@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.trabajomaster.R
 import com.example.trabajomaster.databinding.FragmentScenariesBinding
 
 class ScenariesFragment : Fragment() {
@@ -27,13 +28,8 @@ class ScenariesFragment : Fragment() {
         scenariesViewModel =
             ViewModelProvider(this).get(ScenariesViewModel::class.java)
 
-        _binding = FragmentScenariesBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val root = inflater.inflate(R.layout.fragment_scenaries, container, false)
 
-        val textView: TextView = binding.textNotifications
-        scenariesViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
         return root
     }
 
