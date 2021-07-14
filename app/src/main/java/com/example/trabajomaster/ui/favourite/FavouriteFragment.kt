@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.example.trabajomaster.R
 import com.example.trabajomaster.databinding.FragmentFavouriteBinding
 
 class FavouriteFragment : Fragment() {
@@ -27,8 +28,7 @@ class FavouriteFragment : Fragment() {
         favouriteViewModel =
             ViewModelProvider(this).get(FavouriteViewModel::class.java)
 
-        _binding = FragmentFavouriteBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        val root = inflater.inflate(R.layout.fragment_favourite, container, false)
 
         return root
     }

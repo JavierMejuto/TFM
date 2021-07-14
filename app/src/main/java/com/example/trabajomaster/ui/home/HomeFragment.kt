@@ -40,11 +40,13 @@ class HomeFragment : Fragment() {
         homeViewModel =
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
+        val root = inflater.inflate(R.layout.fragment_home, container, false)
+
         /**set List*/
         userList = ArrayList()
         /**set find Id*/
-        addsBtn = view?.findViewById(R.id.addingBtn)!!
-        recv = view?.findViewById(R.id.mRecycler)!!
+        addsBtn = root.findViewById(R.id.addRoom)
+        recv = root.findViewById(R.id.recycler)
         /**set Adapter*/
         userAdapter = UserAdapter(this, userList)
         /**setRecycler view Adapter*/
@@ -53,8 +55,6 @@ class HomeFragment : Fragment() {
         /**set Dialog*/
         addsBtn.setOnClickListener { addInfo() }
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
         return root
     }
 
