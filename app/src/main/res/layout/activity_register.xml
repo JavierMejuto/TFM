@@ -11,17 +11,42 @@
         android:layout_height="match_parent"
         android:background="@drawable/gradient_background">
 
-
-        <ImageView
-            android:id="@+id/appIcon"
-            android:layout_width="230dp"
-            android:layout_height="230dp"
-            android:layout_marginTop="50dp"
+        <Button
+            android:id="@+id/backLoginButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/round_bg"
+            android:text="ALREADY HAVE AN ACCOUNT? LOG IN"
+            android:textColor="@color/primary_dark"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:backgroundTint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/registerButton" />
+
+        <TextView
+            android:id="@+id/registerTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="55dp"
+            android:text="Register"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_launcher_foreground"
-            tools:ignore="MissingConstraints,VectorDrawableCompat" />
+            app:layout_constraintVertical_bias=".0"
+            tools:layout_editor_absoluteY="86dp" />
 
         <EditText
             android:id="@+id/inputEmail"
@@ -34,6 +59,7 @@
             android:layout_marginRight="32dp"
             android:background="@drawable/round_border"
             android:drawableStart="@drawable/ic_email"
+            android:drawableLeft="@drawable/ic_email"
             android:drawablePadding="16dp"
             android:ems="10"
             android:hint="Email"
@@ -44,8 +70,7 @@
             android:textColorLink="@color/accent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/appIcon"
-            android:drawableLeft="@drawable/ic_email" />
+            app:layout_constraintTop_toBottomOf="@+id/inputUsername" />
 
         <EditText
             android:id="@+id/inputPassword"
@@ -58,6 +83,7 @@
             android:layout_marginRight="32dp"
             android:background="@drawable/round_border"
             android:drawableStart="@drawable/ic_lock"
+            android:drawableLeft="@drawable/ic_lock"
             android:drawablePadding="16dp"
             android:ems="10"
             android:hint="Password"
@@ -67,8 +93,31 @@
             android:textColorHint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputEmail"
-            android:drawableLeft="@drawable/ic_lock" />
+            app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+
+        <EditText
+            android:id="@+id/inputRepeatPassword"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginLeft="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginRight="32dp"
+            android:background="@drawable/round_border"
+            android:drawableStart="@drawable/ic_lock"
+            android:drawableLeft="@drawable/ic_lock"
+            android:drawablePadding="16dp"
+            android:ems="10"
+            android:hint="Repeat Password"
+            android:inputType="textPassword"
+            android:padding="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
 
         <Button
             android:id="@+id/registerButton"
@@ -76,7 +125,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
             android:background="@drawable/round_bg"
@@ -88,64 +137,31 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginButton" />
+            app:layout_constraintTop_toBottomOf="@+id/inputRepeatPassword" />
 
-        <Button
-            android:id="@+id/loginButton"
+        <EditText
+            android:id="@+id/inputUsername"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginLeft="32dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="80dp"
             android:layout_marginEnd="32dp"
             android:layout_marginRight="32dp"
-            android:background="@drawable/round_bg"
-            android:text="LOG IN"
-            android:textColor="@color/primary_dark"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:backgroundTint="@color/white"
+            android:background="@drawable/round_border"
+            android:drawableStart="@drawable/ic_whiteperson"
+            android:drawableLeft="@drawable/ic_whiteperson"
+            android:drawablePadding="16dp"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:padding="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/registerTitle" />
 
-        <ImageButton
-            android:id="@+id/facebookButton"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/white_background"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerButton"
-            app:srcCompat="@drawable/facebook" />
-
-        <ImageButton
-            android:id="@+id/googleButton"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginRight="24dp"
-            android:background="@drawable/white_background"
-            android:scaleType="fitCenter"
-            app:layout_constraintEnd_toStartOf="@+id/facebookButton"
-            app:layout_constraintTop_toBottomOf="@+id/registerButton"
-            app:srcCompat="@drawable/google" />
-
-        <ImageButton
-            android:id="@+id/twitterButton"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginLeft="24dp"
-            android:layout_marginTop="50dp"
-            android:background="@drawable/white_background"
-            android:scaleType="fitCenter"
-            app:layout_constraintStart_toEndOf="@+id/facebookButton"
-            app:layout_constraintTop_toBottomOf="@+id/registerButton"
-            app:srcCompat="@drawable/twitter" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

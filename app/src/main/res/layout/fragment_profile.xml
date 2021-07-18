@@ -60,7 +60,7 @@
                     app:civ_circle_background_color="@color/white"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/favouriteTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/registerTitle"
                     tools:ignore="MissingConstraints" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -82,7 +82,7 @@
                     tools:ignore="MissingConstraints" />
 
                 <TextView
-                    android:id="@+id/favouriteTitle"
+                    android:id="@+id/registerTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
