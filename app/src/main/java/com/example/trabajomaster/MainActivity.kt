@@ -31,5 +31,10 @@ class MainActivity : AppCompatActivity() {
         )
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val bundle: Bundle? = intent.extras
+        val email = bundle?.getString("email")
+        val username = bundle?.getString("username")
+        //Mandar estos datos a los fragments que lo necesitan (en principio probar en Perfil)
     }
 }

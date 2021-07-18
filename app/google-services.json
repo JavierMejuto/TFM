@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "187359212150",
+    "project_id": "tfm-javiermejuto",
+    "storage_bucket": "tfm-javiermejuto.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187359212150:android:34dbeb682141de24672557",
+        "android_client_info": {
+          "package_name": "com.example.trabajomaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187359212150-2rt1n9tp3p46cljd1q0i8eb5ue2sgtnp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDReHFdSYxNtY5ibaAAAJDVGIkdZcOeXn8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187359212150-2rt1n9tp3p46cljd1q0i8eb5ue2sgtnp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

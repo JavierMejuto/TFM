@@ -24,7 +24,7 @@
             tools:ignore="MissingConstraints,VectorDrawableCompat" />
 
         <EditText
-            android:id="@+id/inputEmail"
+            android:id="@+id/emailEditTextLogin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -48,7 +48,7 @@
             android:drawableLeft="@drawable/ic_email" />
 
         <EditText
-            android:id="@+id/inputPassword"
+            android:id="@+id/passwordEditText"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -67,11 +67,11 @@
             android:textColorHint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputEmail"
+            app:layout_constraintTop_toBottomOf="@+id/emailEditTextLogin"
             android:drawableLeft="@drawable/ic_lock" />
 
         <Button
-            android:id="@+id/registerButton"
+            android:id="@+id/toRegisterButton"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
@@ -107,7 +107,7 @@
             app:backgroundTint="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/inputPassword" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordEditText" />
 
         <ImageButton
             android:id="@+id/facebookButton"
@@ -118,7 +118,7 @@
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerButton"
+            app:layout_constraintTop_toBottomOf="@+id/toRegisterButton"
             app:srcCompat="@drawable/facebook" />
 
         <ImageButton
@@ -131,7 +131,7 @@
             android:background="@drawable/white_background"
             android:scaleType="fitCenter"
             app:layout_constraintEnd_toStartOf="@+id/facebookButton"
-            app:layout_constraintTop_toBottomOf="@+id/registerButton"
+            app:layout_constraintTop_toBottomOf="@+id/toRegisterButton"
             app:srcCompat="@drawable/google" />
 
         <ImageButton
@@ -144,7 +144,7 @@
             android:background="@drawable/white_background"
             android:scaleType="fitCenter"
             app:layout_constraintStart_toEndOf="@+id/facebookButton"
-            app:layout_constraintTop_toBottomOf="@+id/registerButton"
+            app:layout_constraintTop_toBottomOf="@+id/toRegisterButton"
             app:srcCompat="@drawable/twitter" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
