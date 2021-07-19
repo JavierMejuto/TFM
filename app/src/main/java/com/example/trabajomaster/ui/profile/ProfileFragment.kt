@@ -1,5 +1,6 @@
 package com.example.trabajomaster.ui.profile
 
+import android.content.Context
 import android.content.Intent
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -29,15 +30,11 @@ class ProfileFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
 
         // Intentar meter en una función
-        val bundle: Bundle? = activity?.intent?.extras
+        /**val bundle: Bundle? = activity?.intent?.extras
         val username: String? = bundle?.getString("username")
-        val email: String? = bundle?.getString("email")
+        val email: String? = bundle?.getString("email")*/
 
-        val usernameText = root.findViewById<TextView>(R.id.usernameText)
-        val emailText = root.findViewById<TextView>(R.id.emailText)
-        usernameText.text = username
-        emailText.text = email
-
+        userInfo(root)
 
         val logoutButton = root.findViewById(R.id.logoutButton) as Button
         logoutButton.setOnClickListener {
@@ -55,8 +52,25 @@ class ProfileFragment : Fragment() {
 
     }
 
+    private fun userInfo(root: View?){
+
+        val sharedPreferences = activity?.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val email = sharedPreferences?.getString("email", null)
+        val username = sharedPreferences?.getString("username", null)
+
+        val usernameText = root?.findViewById<TextView>(R.id.usernameText)
+        val emailText = root?.findViewById<TextView>(R.id.emailText)
+        usernameText?.text = username
+        emailText?.text = email
+    }
+
 
     private fun logout(){
+
+        val sharedPreferences = activity?.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val editor = sharedPreferences?.edit()
+        editor?.remove("email")
+        editor?.apply()
 
         FirebaseAuth.getInstance().signOut()
         val intent = Intent(activity, LoginActivity::class.java)

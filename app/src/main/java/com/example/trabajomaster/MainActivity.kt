@@ -1,6 +1,8 @@
 package com.example.trabajomaster
 
 import android.app.Dialog
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
@@ -32,9 +34,15 @@ class MainActivity : AppCompatActivity() {
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val bundle: Bundle? = intent.extras
+        /**val bundle: Bundle? = intent.extras
         val email = bundle?.getString("email")
         val username = bundle?.getString("username")
-        //Mandar estos datos a los fragments que lo necesitan (en principio probar en Perfil)
+
+
+        val sharedPreferences = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("email", email)
+        editor.putString("username", username)
+        editor.apply()*/
     }
 }

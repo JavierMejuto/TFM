@@ -1,5 +1,6 @@
 package com.example.trabajomaster
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Patterns
@@ -87,10 +88,18 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun startApp(username: String, email: String){
-        val mainIntent = Intent(this, MainActivity::class.java).apply {
+
+        val sharedPreferences = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putString("email", email)
+        editor.putString("username", username)
+        editor.apply()
+
+        /**val mainIntent = Intent(this, MainActivity::class.java).apply {
             putExtra("username", username)
             putExtra("email", email)
-        }
+        }*/
+        val mainIntent = Intent(this, MainActivity::class.java)
         startActivity(mainIntent)
     }
 
