@@ -203,30 +203,21 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <Button
-                            android:id="@+id/logoutButton"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="32dp"
-                            android:layout_marginLeft="32dp"
-                            android:layout_marginTop="100dp"
-                            android:layout_marginEnd="32dp"
-                            android:layout_marginRight="32dp"
-                            android:background="@drawable/round_bg"
-                            android:text="LOG OUT"
-                            android:textColor="@color/white"
-                            android:textSize="18sp"
-                            android:textStyle="bold"
-                            app:backgroundTint="@color/primary_dark"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintHorizontal_bias="0.0"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                        android:layout_height="match_parent"/>
 
                 </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/logoutIcon"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:clickable="true"
+                    android:src="@drawable/ic_logout"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

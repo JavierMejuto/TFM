@@ -9,10 +9,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.trabajomaster.LoginActivity
 import com.example.trabajomaster.R
-import com.example.trabajomaster.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
 
 class ProfileFragment : Fragment() {
@@ -36,7 +36,7 @@ class ProfileFragment : Fragment() {
 
         userInfo(root)
 
-        val logoutButton = root.findViewById(R.id.logoutButton) as Button
+        val logoutButton = root.findViewById(R.id.logoutIcon) as ImageView
         logoutButton.setOnClickListener {
             logout()
         }
