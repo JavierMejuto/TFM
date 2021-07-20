@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trabajomaster.R
 import com.example.trabajomaster.databinding.FragmentHomeBinding
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class HomeFragment : Fragment() {
@@ -59,32 +61,29 @@ class HomeFragment : Fragment() {
     }
 
     private fun addInfo() {
+
+        val bottomSheetDialog = context?.let { BottomSheetDialog(it, R.style.BottomSheetDialogTheme) }
+
         val inflter = LayoutInflater.from(context)
-        val v = inflter.inflate(R.layout.add_item,null)
+        val v = inflter.inflate(R.layout.bottom_sheet,null)
         /**set view*/
         val userName = v.findViewById<EditText>(R.id.userName)
         val userNo = v.findViewById<EditText>(R.id.userNo)
+        val addButton = v.findViewById<Button>(R.id.addCard)
 
-        val addDialog = AlertDialog.Builder(context)
-
-        addDialog.setView(v)
-        addDialog.setPositiveButton("Ok"){
-                dialog,_->
+        addButton.setOnClickListener{
             val names = userName.text.toString()
             val number = userNo.text.toString()
             userList.add(UserData("Name: $names","Mobile No. : $number"))
             userAdapter.notifyDataSetChanged()
             Toast.makeText(context,"Adding User Information Success",Toast.LENGTH_SHORT).show()
-            dialog.dismiss()
+            bottomSheetDialog?.dismiss()
         }
-        addDialog.setNegativeButton("Cancel"){
-                dialog,_->
-            dialog.dismiss()
-            Toast.makeText(context,"Cancel",Toast.LENGTH_SHORT).show()
 
-        }
-        addDialog.create()
-        addDialog.show()
+        bottomSheetDialog?.setContentView(v)
+        bottomSheetDialog?.show()
+        //addDialog.create()
+        //addDialog.show()
     }
 
     override fun onDestroyView() {
