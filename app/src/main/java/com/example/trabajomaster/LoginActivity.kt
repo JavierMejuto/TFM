@@ -2,8 +2,11 @@ package com.example.trabajomaster
 
 import android.content.Context
 import android.content.Intent
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Layout
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageButton
@@ -22,6 +25,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var registerButton: Button
     private lateinit var email: EditText
     private lateinit var password: EditText
+    private lateinit var loginLayout: View
     private val GOOGLE_SIGN_IN = 100
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,7 +46,8 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onStart() {
         super.onStart()
-        //visibility del layout poner visible
+        loginLayout = findViewById(R.id.loginLayout)
+        loginLayout.visibility = View.VISIBLE
     }
 
     private fun session(){
@@ -51,6 +56,8 @@ class LoginActivity : AppCompatActivity() {
         //val username = sharedPreferences.getString("username", null)
         if (email != null){
             //visibility del layout poner invisible
+            loginLayout = findViewById(R.id.loginLayout)
+            loginLayout.visibility = View.INVISIBLE
             startApp(email)
         }
     }

@@ -2,17 +2,23 @@ package com.example.trabajomaster
 
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class MainActivity : AppCompatActivity() {
 
+    private lateinit var loginLayout: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_TrabajoMaster)
@@ -34,15 +40,18 @@ class MainActivity : AppCompatActivity() {
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        /**val bundle: Bundle? = intent.extras
-        val email = bundle?.getString("email")
-        val username = bundle?.getString("username")
+        session()
 
-
-        val sharedPreferences = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString("email", email)
-        editor.putString("username", username)
-        editor.apply()*/
     }
+
+    private fun session(){
+        val sharedPreferences = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+        val email = sharedPreferences.getString("email", null)
+        //val username = sharedPreferences.getString("username", null)
+        if (email == null){
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
 }
