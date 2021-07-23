@@ -140,7 +140,13 @@ class LoginActivity : AppCompatActivity() {
                     FirebaseAuth.getInstance().signInWithCredential(credential)
                         .addOnCompleteListener{
                             if (it.isSuccessful){
-                                startApp(account.email ?: "")
+                                val email = account.email
+                                val sharedPreferences = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
+                                val editor = sharedPreferences.edit()
+                                editor.putString("username$email", account.givenName)
+                                editor.apply()
+
+                                startApp(email ?: "")
                             } else {
                                 showAlert()
                             }

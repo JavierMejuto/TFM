@@ -10,6 +10,7 @@ import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.trabajomaster.R
+import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class UserAdapter(val c: HomeFragment, val userList:ArrayList<UserData>):RecyclerView.Adapter<UserAdapter.UserViewHolder>()
 {
@@ -21,8 +22,8 @@ class UserAdapter(val c: HomeFragment, val userList:ArrayList<UserData>):Recycle
         var mMenus: ImageView
 
         init {
-            name = v.findViewById<TextView>(R.id.mTitle)
-            mbNum = v.findViewById<TextView>(R.id.mSubTitle)
+            name = v.findViewById(R.id.mTitle)
+            mbNum = v.findViewById(R.id.mSubTitle)
             mMenus = v.findViewById(R.id.mMenus)
             mMenus.setOnClickListener { popupMenus(it) }
         }
@@ -34,27 +35,25 @@ class UserAdapter(val c: HomeFragment, val userList:ArrayList<UserData>):Recycle
             popupMenus.setOnMenuItemClickListener {
                 when(it.itemId){
                     R.id.editText->{
-                        val v = LayoutInflater.from(c.activity).inflate(R.layout.add_item,null)
-                        val name = v.findViewById<EditText>(R.id.userName)
-                        val number = v.findViewById<EditText>(R.id.userNo)
-                        AlertDialog.Builder(c.activity)
-                            .setView(v)
-                            .setPositiveButton("Ok"){
-                                    dialog,_->
-                                position.userName = name.text.toString()
-                                position.userMb = number.text.toString()
-                                notifyDataSetChanged()
-                                Toast.makeText(c.activity,"User Information is Edited",Toast.LENGTH_SHORT).show()
-                                dialog.dismiss()
+                        val bottomSheetDialog = c.activity?.let { BottomSheetDialog(it, R.style.BottomSheetDialogTheme) }
 
-                            }
-                            .setNegativeButton("Cancel"){
-                                    dialog,_->
-                                dialog.dismiss()
+                        val inflter = LayoutInflater.from(c.activity)
+                        val v = inflter.inflate(R.layout.bottom_sheet,null)
+                        /**set view*/
+                        val name = v.findViewById<EditText>(R.id.username)
+                        val number = v.findViewById<EditText>(R.id.userno)
+                        val addButton = v.findViewById<Button>(R.id.addCard)
 
-                            }
-                            .create()
-                            .show()
+                        addButton.setOnClickListener{
+                            position.userName = name.text.toString()
+                            position.userMb = number.text.toString()
+                            notifyDataSetChanged()
+                            Toast.makeText(c.activity,"Adding User Information Success",Toast.LENGTH_SHORT).show()
+                            bottomSheetDialog?.dismiss()
+                        }
+
+                        bottomSheetDialog?.setContentView(v)
+                        bottomSheetDialog?.show()
 
                         true
                     }

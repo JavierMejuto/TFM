@@ -92,13 +92,9 @@ class RegisterActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
         editor.putString("email", email)
-        editor.putString("username", username)
+        editor.putString("username$email", username)
         editor.apply()
 
-        /**val mainIntent = Intent(this, MainActivity::class.java).apply {
-            putExtra("username", username)
-            putExtra("email", email)
-        }*/
         val mainIntent = Intent(this, MainActivity::class.java)
         startActivity(mainIntent)
     }

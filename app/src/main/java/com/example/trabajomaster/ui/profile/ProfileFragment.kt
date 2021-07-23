@@ -22,6 +22,8 @@ class ProfileFragment : Fragment() {
     }
 
     private lateinit var viewModel: ProfileViewModel
+    private lateinit var usernameText: TextView
+    private lateinit var emailText: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,12 +31,15 @@ class ProfileFragment : Fragment() {
     ): View? {
         val root = inflater.inflate(R.layout.fragment_profile, container, false)
 
+        usernameText = root.findViewById(R.id.usernameText)
+        emailText = root.findViewById(R.id.emailText)
+
         // Intentar meter en una función
         /**val bundle: Bundle? = activity?.intent?.extras
         val username: String? = bundle?.getString("username")
         val email: String? = bundle?.getString("email")*/
 
-        userInfo(root)
+        userInfo()
 
         val logoutButton = root.findViewById(R.id.logoutIcon) as ImageView
         logoutButton.setOnClickListener {
@@ -52,16 +57,14 @@ class ProfileFragment : Fragment() {
 
     }
 
-    private fun userInfo(root: View?){
+    private fun userInfo(){
 
         val sharedPreferences = activity?.getSharedPreferences(getString(R.string.prefs_file), Context.MODE_PRIVATE)
         val email = sharedPreferences?.getString("email", null)
-        val username = sharedPreferences?.getString("username", null)
+        val username = sharedPreferences?.getString("username$email", null)
 
-        val usernameText = root?.findViewById<TextView>(R.id.usernameText)
-        val emailText = root?.findViewById<TextView>(R.id.emailText)
-        usernameText?.text = username
-        emailText?.text = email
+        usernameText.text = username
+        emailText.text = email
     }
 
 

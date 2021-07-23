@@ -67,14 +67,14 @@ class HomeFragment : Fragment() {
         val inflter = LayoutInflater.from(context)
         val v = inflter.inflate(R.layout.bottom_sheet,null)
         /**set view*/
-        val userName = v.findViewById<EditText>(R.id.userName)
-        val userNo = v.findViewById<EditText>(R.id.userNo)
+        val userName = v.findViewById<EditText>(R.id.username)
+        val userNo = v.findViewById<EditText>(R.id.userno)
         val addButton = v.findViewById<Button>(R.id.addCard)
 
         addButton.setOnClickListener{
             val names = userName.text.toString()
             val number = userNo.text.toString()
-            userList.add(UserData("Name: $names","Mobile No. : $number"))
+            userList.add(UserData(names, number))
             userAdapter.notifyDataSetChanged()
             Toast.makeText(context,"Adding User Information Success",Toast.LENGTH_SHORT).show()
             bottomSheetDialog?.dismiss()
@@ -82,8 +82,7 @@ class HomeFragment : Fragment() {
 
         bottomSheetDialog?.setContentView(v)
         bottomSheetDialog?.show()
-        //addDialog.create()
-        //addDialog.show()
+
     }
 
     override fun onDestroyView() {

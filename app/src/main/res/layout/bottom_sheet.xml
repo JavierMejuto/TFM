@@ -53,27 +53,27 @@
                 tools:ignore="MissingConstraints" />
 
             <EditText
-                android:id="@+id/userName"
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="Name"
-                android:textColorHint="@android:color/darker_gray"
-                android:inputType="textPersonName"
-                android:padding="15dp"
                 android:background="@drawable/round_border_primarydark"
-                android:textColor="@color/primary_text"
-                android:textCursorDrawable="@drawable/black_cursor"
                 android:drawableStart="@drawable/custom_room_icon"
                 android:drawableLeft="@drawable/ic_room_focused"
                 android:drawablePadding="16dp"
+                android:hint="Name"
+                android:inputType="textPersonName"
+                android:padding="15dp"
+                android:textColor="@color/primary_text"
+                android:textColorHint="@android:color/darker_gray"
+                android:textCursorDrawable="@drawable/black_cursor"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintTop_toBottomOf="@+id/line"
-                tools:layout_editor_absoluteX="15dp" />
+                tools:layout_editor_absoluteX="0dp" />
 
             <EditText
-                android:id="@+id/userNo"
+                android:id="@+id/userno"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -86,7 +86,7 @@
                 android:background="@null"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@+id/userName"
+                app:layout_constraintTop_toBottomOf="@+id/username"
                 tools:layout_editor_absoluteX="15dp" />
 
             <Button
@@ -102,7 +102,7 @@
                 app:backgroundTint="@color/primary_dark"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/userNo" />
+                app:layout_constraintTop_toBottomOf="@+id/userno" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 
