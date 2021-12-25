@@ -111,6 +111,8 @@ class LoginActivity : AppCompatActivity() {
         editor.putString("email", email)
         editor.apply()
 
+        //Conectarse al servidor MQTT?
+
         val mainIntent = Intent(this, MainActivity::class.java)
         startActivity(mainIntent)
     }

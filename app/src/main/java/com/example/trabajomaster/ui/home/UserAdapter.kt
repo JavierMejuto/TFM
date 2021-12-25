@@ -9,6 +9,7 @@ import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.mqttkotlinsample.MQTTClient
 import com.example.trabajomaster.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
@@ -20,6 +21,7 @@ class UserAdapter(val c: HomeFragment, val userList:ArrayList<UserData>):Recycle
         var name:TextView
         var mbNum:TextView
         var mMenus: ImageView
+        private lateinit var mqttClient : MQTTClient
 
         init {
             name = v.findViewById(R.id.mTitle)
@@ -42,9 +44,9 @@ class UserAdapter(val c: HomeFragment, val userList:ArrayList<UserData>):Recycle
                         /**set view*/
                         val name = v.findViewById<EditText>(R.id.username)
                         val number = v.findViewById<EditText>(R.id.userno)
-                        val addButton = v.findViewById<Button>(R.id.addCard)
+                        val publishButton = v.findViewById<Button>(R.id.publish)
 
-                        addButton.setOnClickListener{
+                        publishButton.setOnClickListener{
                             position.userName = name.text.toString()
                             position.userMb = number.text.toString()
                             notifyDataSetChanged()
